@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-
-
   <ros2_control name="GazeboSystem" type="system">
     <hardware>
         <plugin>gazebo_ros2_control/GazeboSystem</plugin>
@@ -43,6 +41,9 @@
         <state_interface name="position" />
         <state_interface name="effort" />
     </joint>
+
+
+    <xacro:if value="$(arg arm_enable)">
 
     <joint name="arm_Rot_joint">
         <command_interface name="position"/>
@@ -105,6 +106,8 @@
         <command_interface name="position"/>
         <state_interface name="position" />
     </joint>
+    </xacro:if>
+
 
   </ros2_control>
 
@@ -115,6 +118,9 @@
 <gazebo>
     <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
        <parameters>$(find mirte_master_description)/config/mirte_base_control.yaml</parameters>
+       <xacro:if value="$(arg arm_enable)">
+          <parameters>$(find mirte_master_description)/config/mirte_arm_control.yaml</parameters>
+       </xacro:if>
     </plugin>
     <plugin filename="libgazebo_ros_planar_move.so" name="gazebo_planar_move">
        <robot_base_frame>base_link</robot_base_frame> 
