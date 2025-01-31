@@ -53,6 +53,9 @@
   </xacro:if>
 
   <link name="base_link" />
+  <gazebo reference="base_link">
+     <kinematic>1</kinematic>
+  </gazebo>
 
   <joint name="frame_base_joint" type="fixed">
     <origin xyz="0 0 0.10" rpy="0 0 ${radians(90)}" />

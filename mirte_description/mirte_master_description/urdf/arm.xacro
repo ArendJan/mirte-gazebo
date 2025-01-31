@@ -592,4 +592,28 @@
         <mimic joint="Gripper_joint" multiplier="-1"/>
     </joint>
 
+
+
+<gazebo>
+    <plugin filename="libgazebo_grasp_fix.so" name="gazebo_grasp_fix">
+       <arm>
+          <arm_name>finger_gripper</arm_name>
+          <palm_link>arm_Wrist</palm_link>
+          <gripper_link>Gripper</gripper_link>
+          <gripper_link>_Gripper_r</gripper_link>
+          <gripper_link>_gripper_link_l</gripper_link>
+          <gripper_link>gripper_finger_l</gripper_link>
+          <gripper_link>_gripper_link_r</gripper_link>
+          <gripper_link>gripper_finger_r</gripper_link>
+       </arm>
+       <forces_angle_tolerance>100</forces_angle_tolerance>
+       <update_rate>4</update_rate>
+       <grip_count_threshold>4</grip_count_threshold>
+       <max_grip_count>8</max_grip_count>
+       <release_tolerance>0.005</release_tolerance>
+       <disable_collisions_on_attach>false</disable_collisions_on_attach>
+    </plugin>
+</gazebo>
+
+
 </robot>
