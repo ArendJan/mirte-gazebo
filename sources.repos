@@ -1,0 +1,9 @@
+repositories:
+  gazebo_grasp_fix:
+    type: git
+    url: https://github.com/RCPRG-ros-pkg/gazebo-grasp-plugin.git
+    version: c4ea016e55622ea305bef07b2f6ee12d8bd07b71
+  mirte-ros-packages:
+    type: git
+    url: https://github.com/mirte-robot/mirte-ros-packages.git
+    version: 9cd4a6d97944522c569097e0f8036f47bbf1ce04
